@@ -74,3 +74,4 @@ Adapt the port settings in `.vscode/settings.json` and `.devcontainer/devcontain
 To adapt doxygen to your project settings adapt the `Doxyfile` in the workspace root.
 
 - Update `PROJECT_NAME` according to your project
+- Set `PLANTUML_JAR_PATH` to the path where `plantuml.jar` is located (defaulted to `/usr/share/plantuml`)
