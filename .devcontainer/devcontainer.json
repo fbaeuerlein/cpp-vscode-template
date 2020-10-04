@@ -1,0 +1,75 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json 
+{
+	"name": "C++",
+	"build": {
+		"dockerfile": "../Dockerfile",
+	},
+
+	// add to support debugging
+	"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		// C/C++ support
+		"ms-vscode.cpptools",
+		"ms-vscode.cmake-tools", 
+
+		// Doxygen
+		"bbenoist.Doxygen",
+		"cschlosser.doxdocgen",
+		"betwo.vscode-doxygen-runner",
+
+		// Markdown
+		"yzhang.markdown-all-in-one",
+		"davidanson.vscode-markdownlint",
+		
+		"jebbs.plantuml",
+		"2gua.rainbow-brackets",
+
+		// Git
+		"mhutchie.git-graph",
+		"eamodio.gitlens",
+
+		// GitHub
+		"github.vscode-pull-request-github",
+		"kenhowardpdx.vscode-gist",
+
+		// clang freatures
+		"xaver.clang-format",
+		"notskm.clang-tidy",
+
+		// Testing
+		"hbenl.vscode-test-explorer",
+		"matepek.vscode-catch2-test-adapter",
+
+		// other
+		"spmeesseman.vscode-taskexplorer",
+		"gruntfuggly.todo-tree",
+		"redhat.vscode-yaml",
+		"ms-python.python",
+		"ms-azuretools.vscode-docker",
+		"ryanluker.vscode-coverage-gutters",
+		"pokowaka.pokowaka-iwyu",
+
+		// remote 
+		"ms-vscode-remote.vscode-remote-extensionpack",
+		"ms-vscode-remote.remote-ssh-edit",
+		"ms-vscode-remote.remote-ssh"
+
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "gcc -v",
+
+	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	// "containerUser": "vscode"
+
+}

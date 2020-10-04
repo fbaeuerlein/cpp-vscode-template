@@ -1,0 +1,21 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/examples",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools", 
+    
+    "iwyu.exe": "/usr/bin/iwyu", 
+    "iwyu.compile_commands": "${workspaceFolder}/build/compile_commands.json",
+
+    "clang-tidy.compilerArgs" : [ "-std=c++11" ], 
+    "clang-tidy.buildPath" : "build/", // needs to find the compile_commands.json
+    "clang-tidy.executable" : "clang-tidy", 
+
+    "testExplorer.codeLens": true,
+    "markdown.extension.toc.slugifyMode": "github",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.markdownlint": true
+    }, 
+
+    "coverage-gutters.coverageFileNames": [
+        "lcov.info"
+    ]
+}

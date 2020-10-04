@@ -1,0 +1,125 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    // input prompt to ask for destination of coverage report
+    "inputs": [
+        {
+            "id": "coverageHtmlFolder",
+            "type": "promptString",
+            "description": "Select folder for coverage HTML report",
+            "default": "${workspaceFolder}/coverage"
+        }
+    ],
+    "tasks": [
+        {
+            "label": "Coverage: clean",
+            "type": "shell",
+            "command": "rm",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "-rf",
+                "lcov.info",
+                "lcov_base.info"
+                // "${input:coverageHtmlFolder}"
+            ]
+        },        
+        {
+            "label": "Coverage: create baseline",
+            "type": "shell",
+            "dependsOn" : [ "Coverage: clean"],
+            "command": "lcov",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "--capture",
+                "--initial",
+                "--directory",
+                ".",
+                "--output-file",
+                "lcov_base.info"                
+            ],
+        },
+        {
+            "label": "Coverage: generate",
+            "type": "shell",
+            "command": "lcov",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "--capture",
+                "--directory",
+                ".",
+                "--output-file",
+                "lcov.info"
+            ],
+        },
+        {
+            "label": "Coverage: combine baseline",
+            "type": "shell",
+            "dependsOn" : [ "Coverage: generate" ],
+            "command": "lcov",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "--add-tracefile",
+                "lcov_base.info",
+                "--add-tracefile",
+                "lcov.info",
+                "--output-file",
+                "lcov.info"
+            ],
+        },        
+        {
+            "label": "Coverage: filter",
+            "type": "shell",
+            "command": "lcov",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": ["Coverage: combine baseline"],
+            "args": [
+                "--remove",
+                "lcov.info",
+                "'/usr/include/*'",
+                "'${workspaceFolder}/examples/test/ext/googletest/*'",
+                "'${workspaceFolder}/examples/main.cpp'",
+                "--output-file",
+                "lcov.info"
+            ]
+        },
+        {
+            "label": "Coverage: genhtml",
+            "type": "shell",
+            "command": "genhtml",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn" : ["Coverage: filter"],
+            "args": [
+                "lcov.info",
+                "-o",
+                "${input:coverageHtmlFolder}"
+            ]
+        },
+        {
+            "label": "Coverage: generate report & open in browser",
+            "dependsOn": [
+                "Coverage: genhtml"
+            ],
+            "type": "shell",
+            "command": "firefox",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "${input:coverageHtmlFolder}/index.html"
+            ],
+        }
+    ]
+}
