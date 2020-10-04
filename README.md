@@ -12,6 +12,7 @@ A workspace template for coding C/C++ with Visual Studio Code
   - [Variants](#variants)
   - [Tasks](#tasks)
   - [Documentation](#documentation)
+    - [Live Server](#live-server)
     - [Doxygen](#doxygen)
 
 ## Overview
@@ -61,6 +62,12 @@ Currently there are several tasks that deal with coverage generation. See my [co
 ### Documentation
 
 For documentation purposes doxygen, plantuml and some markdown supporting extensions are installed. Also the necessary packages are considered in the dockerfile.
+
+#### Live Server
+
+If you are developing within the dev containers, opening a browser from the tasks is not possible. So use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension to display HTML files (e.g. from doxygen or coverage). It automatically reloads the pages on change. So you don't even to do a reload!
+
+Adapt the port settings in `.vscode/settings.json` and `.devcontainer/devcontainer.json` to connect on localhost to the specified port with your browser.
 
 #### Doxygen
 

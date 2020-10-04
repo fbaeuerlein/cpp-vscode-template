@@ -57,6 +57,7 @@
 		"ms-azuretools.vscode-docker",
 		"ryanluker.vscode-coverage-gutters",
 		"pokowaka.pokowaka-iwyu",
+		"ritwickdey.liveserver", 
 
 		// remote 
 		"ms-vscode-remote.vscode-remote-extensionpack",
@@ -66,7 +67,7 @@
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	"forwardPorts": [ 5600 ],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "gcc -v",

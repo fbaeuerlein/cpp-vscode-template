@@ -106,20 +106,6 @@
                 "-o",
                 "${input:coverageHtmlFolder}"
             ]
-        },
-        {
-            "label": "Coverage: generate report & open in browser",
-            "dependsOn": [
-                "Coverage: genhtml"
-            ],
-            "type": "shell",
-            "command": "firefox",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "args": [
-                "${input:coverageHtmlFolder}/index.html"
-            ],
         }
     ]
 }
