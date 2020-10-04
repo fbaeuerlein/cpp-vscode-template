@@ -11,6 +11,7 @@ A workspace template for coding C/C++ with Visual Studio Code
   - [Devcontainer support](#devcontainer-support)
   - [Variants](#variants)
   - [Tasks](#tasks)
+  - [Testing](#testing)
   - [Documentation](#documentation)
     - [Live Server](#live-server)
     - [Doxygen](#doxygen)
@@ -58,6 +59,11 @@ Supported build variants:
 ### Tasks
 
 Currently there are several tasks that deal with coverage generation. See my [coverage documentation](https://github.com/fbaeuerlein/cpp-vscode-guide/blob/master/doc/Coverage.md) from another project.
+
+### Testing
+
+I'm used to googletest, so I added the latest release within the `test` directory. I also provided a test executable sample. If you prefer a different testing framework, simply replace it.
+For test management the Test Explorer and C++ TestMate extensions are installed.
 
 ### Documentation
 
