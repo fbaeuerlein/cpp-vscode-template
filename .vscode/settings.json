@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/examples",
+    "cmake.sourceDirectory": "${workspaceFolder}/.",
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools", 
     
     "iwyu.exe": "/usr/bin/iwyu", 

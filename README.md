@@ -6,6 +6,7 @@ A workspace template for coding C/C++ with Visual Studio Code
 - [Requirements](#requirements)
 - [Usage](#usage)
 - [Features](#features)
+  - [CMake](#cmake)
   - [Docker](#docker)
   - [Devcontainer support](#devcontainer-support)
   - [Variants](#variants)
@@ -32,6 +33,11 @@ Simply clone this repository and copy it's content without the `.git*` files to 
 ## Features
 
 The following development features are covered by this repository.
+
+### CMake
+
+Within the dockerfile the latest distribution related version of CMake will be installed.
+If you prefer another version, adapt the minimum required version in `CMakeLists.txt` in the workspace root.
 
 ### Docker
 

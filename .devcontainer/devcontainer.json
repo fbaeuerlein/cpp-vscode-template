@@ -15,9 +15,11 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		// C/C++ support
+		// C/C++ & CMake support
 		"ms-vscode.cpptools",
 		"ms-vscode.cmake-tools", 
+		"cheshirekow.cmake-format",
+		"twxs.cmake",
 
 		// Doxygen
 		"bbenoist.Doxygen",
