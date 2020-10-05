@@ -17,7 +17,7 @@ instrumentation:
   default: NoInstrumentation # no sanitizer/no instrumentation
   choices:
 
-    NoSan:
+    NoInstrumentation:
       short: NoInstrumentation
       long: build without any instrumentation
 
