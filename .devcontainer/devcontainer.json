@@ -58,6 +58,7 @@
 		"ryanluker.vscode-coverage-gutters",
 		"pokowaka.pokowaka-iwyu",
 		"ritwickdey.liveserver", 
+		"streetsidesoftware.code-spell-checker",
 
 		// remote 
 		"ms-vscode-remote.vscode-remote-extensionpack",
