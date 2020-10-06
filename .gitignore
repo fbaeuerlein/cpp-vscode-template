@@ -1,3 +1,5 @@
 build
 html
 Testing
+coverage
+lcov*

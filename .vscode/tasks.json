@@ -9,7 +9,13 @@
             "type": "promptString",
             "description": "Select folder for coverage HTML report",
             "default": "${workspaceFolder}/coverage"
-        }
+        },
+        {
+            "id": "gcovLocation",
+            "type": "promptString",
+            "description": "Select gcov executable",
+            "default": "/usr/bin/gcov"
+        }        
     ],
     "tasks": [
         {
@@ -35,6 +41,8 @@
                 "cwd": "${workspaceFolder}"
             },
             "args": [
+                "--gcov-tool", 
+                "${input:gcovLocation}",                
                 "--capture",
                 "--initial",
                 "--directory",
@@ -51,6 +59,8 @@
                 "cwd": "${workspaceFolder}"
             },
             "args": [
+                "--gcov-tool", 
+                "${input:gcovLocation}",                
                 "--capture",
                 "--directory",
                 ".",
@@ -67,6 +77,8 @@
                 "cwd": "${workspaceFolder}"
             },
             "args": [
+                "--gcov-tool", 
+                "${input:gcovLocation}",                
                 "--add-tracefile",
                 "lcov_base.info",
                 "--add-tracefile",
@@ -84,11 +96,13 @@
             },
             "dependsOn": ["Coverage: combine baseline"],
             "args": [
+                "--gcov-tool", 
+                "${input:gcovLocation}",
                 "--remove",
                 "lcov.info",
                 "'/usr/include/*'",
-                "'${workspaceFolder}/examples/test/ext/googletest/*'",
-                "'${workspaceFolder}/examples/main.cpp'",
+                "'${workspaceFolder}/test/googletest/*'",
+                "'${workspaceFolder}/main.cpp'",
                 "--output-file",
                 "lcov.info"
             ]
