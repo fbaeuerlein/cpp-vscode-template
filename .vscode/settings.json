@@ -19,5 +19,7 @@
         "lcov.info"
     ], 
 
-    "liveServer.settings.port": 5600
+    "liveServer.settings.port": 5600, 
+
+    "cmake.parallelJobs":  0 // use number of cores for make -j
 }
